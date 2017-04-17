@@ -1,0 +1,23 @@
+{
+  "name": "learn-in-action",
+  "version": "1.0.0",
+  "description": "在实践中学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/learn-in-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/learn-in-action/issues"
+  },
+  "homepage": "https://github.com/postor/learn-in-action#readme",
+  "devDependencies": {
+    "electron": "^1.6.2"
+  }
+}
