@@ -4,7 +4,8 @@
   "description": "在实践中学习",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/electron ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,6 @@
   "homepage": "https://github.com/postor/learn-in-action#readme",
   "devDependencies": {
     "electron": "^1.6.2"
-  }
+  },
+  "dependencies": {}
 }

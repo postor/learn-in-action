@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow,Menu} = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -8,7 +8,12 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({
+    width: 800, 
+    height: 600,
+    fullscreen: true,
+  })
+  win.maximize()
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -29,10 +34,43 @@ function createWindow () {
   })
 }
 
+function initMenu(){
+  const template = [
+    {
+      label: '首页',
+      click () { 
+        win.loadURL(url.format({
+          pathname: path.join(__dirname, 'index.html'),
+          protocol: 'file:',
+          slashes: true
+        }))
+      }
+    },    
+    {
+      label: '更多',
+      click () { require('electron').shell.openExternal('https://github.com/postor/learn-in-action') }
+    },
+    {
+      label: '最小化',
+      role: 'minimize'
+    },
+    {
+      label: '关闭',
+      role: 'close'
+    },
+  ]
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', ()=>{
+  createWindow()
+  initMenu()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
