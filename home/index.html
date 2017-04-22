@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>开始学习吧!</title>
+    <script src="../lib/vue.min.js"></script>
+    <script src="index.build.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>开始学习吧!</h1>
+      <ul>
+        <li v-for="course in courses">
+          <h2>{{course.title}}</h2>
+          <p>{{course.package}}</p>
+        </li>     
+      </ul>
+    </div>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
