@@ -9,4 +9,4 @@ const list = [
   },
 ]
 
-export default list
+module.exports = list

@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && \"node_modules/.bin/electron\" .",
-    "build": "node node_modules/webpack/bin/webpack.js home/index.js home/index.build.js"
+    "start": "\"node_modules/.bin/electron\" ."
   },
   "repository": {
     "type": "git",
@@ -23,9 +22,9 @@
     "electron": "^1.6.2"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "jquery": "^3.2.1",
     "nedb": "^1.8.0",
-    "vue": "^2.2.6",
-    "webpack": "^2.4.1"
+    "vue": "^2.2.6"
   }
 }

@@ -32,6 +32,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   })
+  global.win = win
 }
 
 function initMenu(){
