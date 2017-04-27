@@ -1,6 +1,13 @@
+var path = require('path')
 var $ = require('jquery')
-var db = require('../lib/db.js')
+//var install = require('exec-npm-install')
+var Promise = require('bluebird')
 var courseList = require( '../course-list.js')
+var db = require('../lib/db.js')
+var install = require('../lib/install.js')
+var courseState = require('../lib/course-state.js')
+
+//var pinstall = Promise.promisify(install)
 
 $(document).ready(()=>{
   var vm = new Vue({
@@ -15,8 +22,12 @@ $(document).ready(()=>{
         var learning = [], available = [], finished = [];
         courseList.forEach(function(course) {
           var courseStep = db.getCourse(course.package)
-          if(!courseStep){
-            available.push(course)
+          if(!courseStep){            
+            if(courseState.isInstalled(course.package)){
+              learning.push(course)
+            }else{
+              available.push(course)
+            }
           }else if(courseStep.finished){
             finished.push(course)
           }else{
@@ -30,13 +41,22 @@ $(document).ready(()=>{
         this.available = available
         this.finished = finished
       },
-      continueCourse: function(package){
-        
+      continueCourse: function(course){
+          loadCourse(course.package)        
       },
-      restartCourse: function(package){
-
+      restartCourse: function(course){
       },
-      installCourse: function(package){
+      installCourse: function(course){
+        course.installing = true
+        install(course.package)
+        .then(()=>{
+          course.installing = false
+          loadCourse(course.package)
+        })
+        .catch((err)=>{
+          course.installing = false
+          alert(err.toString())
+        })
 
       }
     },
@@ -48,13 +68,10 @@ $(document).ready(()=>{
 
 
 function loadCourse(package){
-  global.win.loadURL(url.format({
-    pathname: path.join(__dirname, 'course', 'index.html?package='+package),
-    protocol: 'file:',
-    slashes: true
-  }))
+  var filePath = path.join(__dirname, 'course', 'index.html')
+  var packageName = path.basename(package)
+  var url = `file://${filePath}?package=${packageName}`
+
+  global.win.loadURL(url)
 }
 
-function install(package){
-  
-}
