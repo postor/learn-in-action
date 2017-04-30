@@ -18,9 +18,16 @@
           <div class="pane">
             <h1>{{chapter.title}}</h1>
             <ul>
-              <li v-for="step in chapter.stpes">
+              <li v-for="step in chapter.steps">
                 <h2>{{step.title}} </h2>
-                <p>{{step.desc}}</p>
+                <p>
+                  {{step.desc}}
+                  <div class="checkbox">
+                    <label>
+                      <input v-bind:checked="step.checked" type="checkbox" disabled="disabled">
+                    </label>
+                  </div>
+                </p>
               </li>
             </ul>
           </div>

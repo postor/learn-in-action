@@ -64,17 +64,7 @@ var vm = new Vue({
     validateStep: function(){
       var step = this.getCurrentStep()
       if(step.validate){
-        if(typeof step.validate == 'string'){
-          //exec
-          var execSync = require('child_process')
-          try{
-            execSync()
-          }catch(e){
-            console.log(e)
-          }
-        }else{
-
-        }
+        validate(step.validate,package,this.stepInfo.chapter)
       }
     },
     isLastStep: function(){      
@@ -90,5 +80,8 @@ var vm = new Vue({
     getCurrentStep: function(){
       return this.chapter.steps[this.stepInfo.step]
     }
+  },
+  mounted: function(){
+    console.log(this.chapter.steps.length)
   },
 });
