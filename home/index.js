@@ -2,11 +2,11 @@ var path = require('path')
 var url = require('url')
 //var install = require('exec-npm-install')
 var Promise = require('bluebird')
-var courseList = require( '../course-list.js')
-var db = require('../lib/db.js')
-var install = require('../lib/install.js')
-var courseState = require('../lib/course-state.js')
-var helper = require('../lib/helper.js')
+var courseList = require( '../course-list')
+var db = require('../lib/db')
+var install = require('../lib/install')
+var courseState = require('../lib/course-state')
+var helper = require('../lib/helper')
 
 //var pinstall = Promise.promisify(install)
 var win
@@ -22,6 +22,7 @@ var vm = new Vue({
     setCourses: function(courseList){
       var learning = [], available = [], finished = [];
       courseList.forEach(function(course) {
+        course.installing = false
         var courseStep = db.getCourse(course.package)
         if(!courseStep){            
           if(courseState.isInstalled(course.package)){
@@ -79,7 +80,8 @@ function loadCourse(package){
       package: packageName,
     }
   })
-
+  helper.loadUrl(windowUrl)
+  /*
   win = helper.createWindow(windowUrl)
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
@@ -89,5 +91,6 @@ function loadCourse(package){
     
     vm.setCourses(courseList)
   })
+  */
 }
 

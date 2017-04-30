@@ -5,13 +5,33 @@
     <title>开始学习吧!</title>
     <link rel="stylesheet" href="../resources/css/photon.min.css">
     <script src="../lib/vue.min.js"></script>
-    <script src="index.js"></script>
   </head>
   <body>
     <div id="app" class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title">
+          开始新的课程！
+          <span v-on:click="loadMain()" class="icon icon-cancel-circled" style="float:right;margin-right: 14px"></span></h1>
+      </header>
       <div class="window-content">
-        <p>开始新的课程！</p>
+        <div class="pane-group">
+          <div class="pane">
+            <h1>{{chapter.title}}</h1>
+            <ul>
+              <li v-for="step in chapter.stpes">
+                <h2>{{step.title}} </h2>
+                <p>{{step.desc}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="pane">...</div>
+          <div class="pane">...</div>
+        </div>
       </div>
+      <footer class="toolbar toolbar-footer">
+        <h1 class="title">Footer</h1>
+      </footer>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

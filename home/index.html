@@ -25,7 +25,8 @@
             <li v-for="course in available">
               <h2>{{course.title}}</h2>
               <p>{{course.package}}</p>
-              <button v-on:click="installCourse(course)">安装</button>
+              <button v-if="!course.installing" v-on:click="installCourse(course)">安装</button>
+              <label v-if="course.installing">安装中...</label>
             </li>     
           </ul>
         </div>
