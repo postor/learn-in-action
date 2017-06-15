@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/postor/learn-in-action#readme",
   "devDependencies": {
-    "electron": "^1.6.2"
+    "electron": "^1.6.11"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "exec-npm-install": "^1.0.4",
+    "fs-extra": "^3.0.1",
     "jquery": "^3.2.1",
     "nedb": "^1.8.0",
     "vue": "^2.2.6"

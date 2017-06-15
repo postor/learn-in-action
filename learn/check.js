@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const exec = require('child_process').exec;
 
 /**
@@ -20,14 +21,30 @@ export function checkAll(moduleName){
  */
 export function checkStep(step,moduleName){
   if(!step.validate) return true
-  if(isFunction(step.validate)){
-    return step.validate(moduleName)
+  if(_.isArray(step.validate)){
+    return step.validate.every((item)=>{
+      return checkItem(item)
+    })
   }else{
-
+    return checkItem(item) 
   }
-}  
+  
 
-function isFunction(functionToCheck) {
- var getType = {};
- return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-}
+  function checkItem(item){
+    if(item.cmd){
+      return checkCommand(item.cmd)
+    }else if(item.callback){
+      return checkFunction(item.callback)
+    }else{
+      return true
+    }
+  }
+
+  function checkFunction(fun){
+    if(fun())
+  }
+
+  function checkCommand(cmd){
+    
+  }
+} 

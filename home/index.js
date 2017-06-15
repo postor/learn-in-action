@@ -24,7 +24,9 @@ var vm = new Vue({
       courseList.forEach(function(course) {
         course.installing = false
         var courseStep = db.getCourse(course.package)
-        if(!courseStep){            
+        if(!courseState.isInstalled(course.package)){
+          available.push(course)
+        }else if(!courseStep){            
           if(courseState.isInstalled(course.package)){
             learning.push(course)
           }else{
