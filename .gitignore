@@ -1,2 +1,5 @@
 node_modules
 home/index.build.js
+/yarn-error.log
+/.vscode
+/yarn.lock
