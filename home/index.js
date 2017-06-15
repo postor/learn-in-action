@@ -61,6 +61,7 @@ var vm = new Vue({
       })
       .catch((err)=>{
         course.installing = false
+        console.log(err)
         alert(err.toString())
       })
 

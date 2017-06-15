@@ -4,8 +4,8 @@ const list = [
     package: 'postor/learn-in-action-buildin-npm',
   },
   {
-    title: 'HTML基础',
-    package: 'postor/learn-in-action-html',
+    title: 'next.js入门',
+    package: 'postor/learnnextjs',
   },
 ]
 
