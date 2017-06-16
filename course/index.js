@@ -1,5 +1,6 @@
 const url = require('url')
 const path = require('path')
+const exec = require('child_process').exec
 const helper = require('../lib/helper')
 const db = require('../lib/db')
 const validate = require('../lib/validate-exec')
@@ -123,7 +124,17 @@ var vm = new Vue({
       }else{
         this.iframeSrc = 'about:blank'
       }
-    }
+    },
+    openPlayroundFolder:function(){
+      var folderPath = helper.getPlayGround(package, this.stepInfo.chapter)
+      console.log(folderPath)
+      exec('start explorer "'+folderPath+'"')
+    },
+    openPlayroundShell:function(){
+      var folderPath = helper.getPlayGround(package, this.stepInfo.chapter)
+      console.log(folderPath)
+      exec('start powershell', {cwd: folderPath})
+    },
   },
   mounted: function(){
     this.updateStep()

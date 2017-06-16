@@ -40,6 +40,9 @@
           <button v-on:click="validateStep()" v-if="getCurrentStep().validate" style="margin: 0 15px;">验证+{{isLastStep()?isLastChapter()?'结束课程':'下一章':'下一步'}}</button>
           
           <button v-on:click="nextStep()" style="margin: 0 15px;">{{getCurrentStep().validate?'跳过验证+':''}}{{isLastStep()?isLastChapter()?'结束课程':'下一章':'下一步'}}</button>
+
+          <button v-on:click="openPlayroundFolder()" style="margin: 0 15px;">打开工作目录文件夹</button>
+          <button v-on:click="openPlayroundShell()" style="margin: 0 15px;">打开工作目录命令行</button>
         </center>
       </footer>
     </div>
