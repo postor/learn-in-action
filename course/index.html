@@ -37,12 +37,12 @@
         <center>
           <button v-on:click="prevStep()" v-if="stepInfo.step||stepInfo.chapter" style="margin: 0 15px;">&lt;上一步</button>
 
-          <button v-on:click="validateStep()" v-if="getCurrentStep().validate" style="margin: 0 15px;"><i class="fa fa-flag-checkered" aria-hidden="true"></i>+{{isLastStep()?isLastChapter()?'结束课程finish':'下一章>>':'下一步>'}}</button>
+          <button v-on:click="validateStep()" v-if="getCurrentStep().validate" style="margin: 0 15px;"><span class="icon icon-check"></span>&nbsp;+&nbsp;{{isLastStep()?isLastChapter()?'结束课程finish':'下一章>>':'下一步>'}}</button>
           
           <button v-on:click="nextStep()" style="margin: 0 15px;">{{getCurrentStep().validate?'跳过验证+':''}}{{isLastStep()?isLastChapter()?'结束课程finish':'下一章>>':'下一步>'}}</button>
 
-          <button v-on:click="openPlayroundFolder()" style="margin: 0 15px;">打开工作目录文件夹<i class="fa fa-folder-open-o" aria-hidden="true"></i></button>
-          <button v-on:click="openPlayroundShell()" style="margin: 0 15px;">打开工作目录命令行<i class="fa fa-terminal" aria-hidden="true"></i></button>
+          <button v-on:click="openPlayroundFolder()" style="margin: 0 15px;"><span class="icon icon-folder"></span>&nbsp;打开工作目录文件夹</button>
+          <button v-on:click="openPlayroundShell()" style="margin: 0 15px;"><span class="icon icon-window"></span>&nbsp;打开工作目录命令行</button>
         </center>
       </footer>
     </div>
