@@ -10,8 +10,8 @@
     <div id="app" class="window">
       <header class="toolbar toolbar-header">
         <h4 class="title">
-          开始新的课程！
-          <span v-on:click="loadMain()" class="icon icon-cancel-circled" style="float:right;margin-right: 14px"></span></h4>
+          {{title}}-{{stepInfo.chapter+1}}.{{chapter.title}}-{{stepInfo.step+1}}.{{getCurrentStep().title}} &nbsp;&nbsp;&nbsp;&nbsp;
+          <button v-on:click="loadMain()" class="icon icon-cancel-circled">返回</button></h4>
       </header>
       <div class="window-content">
         <div class="pane-group">
