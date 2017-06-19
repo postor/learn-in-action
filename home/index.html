@@ -10,20 +10,20 @@
     <div id="app" class="window">
       <div class="window-content">
         <div v-if="learning.length">
-          <h1>学习中的课程</h1>
+          <h4>学习中的课程| learning</h4>
           <ul>
             <li v-for="course in learning">
-              <h2>{{course.title}}</h2>
+              <h5>{{course.title}}</h5>
               <p>{{course.package}}</p>
               <button v-on:click="continueCourse(course)">继续</button>
             </li>     
           </ul>
         </div>
         <div v-if="available.length">
-          <h1>可学习的课程</h1>
+          <h4>可学习的课程</h4>
           <ul>
             <li v-for="course in available">
-              <h2>{{course.title}}</h2>
+              <h5>{{course.title}}</h5>
               <p>{{course.package}}</p>
               <button v-if="!course.installing" v-on:click="installCourse(course)">安装</button>
               <label v-if="course.installing">安装中...</label>
@@ -31,10 +31,10 @@
           </ul>
         </div>
         <div v-if="finished.length">
-          <h1>已完成的课程</h1>
+          <h4>已完成的课程</h4>
           <ul>
             <li v-for="course in finished">
-              <h2>{{course.title}}</h2>
+              <h5>{{course.title}}</h5>
               <p>{{course.package}}</p>
               <button v-on:click="restartCourse(course)">重新开始</button>
             </li>     
