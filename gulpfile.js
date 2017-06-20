@@ -4,7 +4,7 @@ var jsdoc = require('gulp-jsdoc3');
 gulp.task('doc', function (cb) {
   var config = {
     "opts": {
-      "destination": "./docs"
+      "destination": "./docs/gen"
     },
     "plugins": [
       "plugins/markdown"
