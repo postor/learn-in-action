@@ -18,7 +18,7 @@ This project aims to make people learn technique better through working out real
 ### 迁出代码/安装依赖/启动 | code/install/start
 
 ```
-git clone https://github.com/postor/learn-in-action.git
+git clone https://github.com/learn-in-action/learn-in-action.git
 cd learn-in-action
 npm install
 npm run start
